@@ -301,6 +301,11 @@ Phaser.Physics.P2.Body.prototype = {
     * @param {p2.Shape} [shape] - An optional Shape. If not provided the collision group will be added to all Shapes in this Body.
     */
     setCollisionGroup: function (group, shape) {
+        if (typeof group !== 'Phaser.Physics.P2.CollisionGroup')
+        {
+            console.log("[Physics][p2][Body] - setCollisionGroup(group, shape): expected Phaser.Physics.P2.CollisionGroup.");
+            return;
+        }
 
         var mask = this.getCollisionMask();
 
